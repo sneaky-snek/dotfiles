@@ -393,8 +393,8 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
     
-    ISO_Level3_Shift+dead_acute allow-when-locked=true { spawn-sh "dms ipc call mpris increment 5"; }
-    ISO_Level3_Shift+semicolon allow-when-locked=true { spawn-sh "dms ipc call mpris decrement 10"; }
+    ISO_Level3_Shift+dead_acute allow-when-locked=true { spawn-sh "dms ipc call mpris increment 1"; }
+    ISO_Level3_Shift+semicolon allow-when-locked=true { spawn-sh "dms ipc call mpris decrement 5"; }
 
 
     // Example brightness key mappings for brightnessctl.
