@@ -691,7 +691,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 8.0 // Adjust radius as needed
+    geometry-corner-radius 6.0 // Adjust radius as needed
     clip-to-geometry true
 
     
