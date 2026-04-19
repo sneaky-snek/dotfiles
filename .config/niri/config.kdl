@@ -640,7 +640,7 @@ binds {
 workspace "1" 
 workspace "2" 
 workspace "3"
-workspace "4"
+//workspace "4"
 
 
 
@@ -683,7 +683,22 @@ window-rule {
 
 window-rule {
 	match is-focused=false
-	opacity 0.9
+	opacity 0.6
+	
+	background-effect {
+        	blur true
+    	}
+}
+
+window-rule {
+    geometry-corner-radius 8.0 // Adjust radius as needed
+    clip-to-geometry true
+
+    
+    background-effect {
+        blur true
+    }
+
 }
 
 layer-rule {
@@ -706,6 +721,8 @@ layer-rule {
 }
 
 //spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-sh-at-startup "swaybg -i /media/beeg/Media/Pics/Wallpapers/dofresh-tome4-wip06-full.jpg"
+spawn-sh-at-startup "swaybg -i /home/snek/Pictures/wallpapers/wallhaven-qr3175.jpg"
 include "dms/cursor.kdl"
 
+
+include "dms/outputs.kdl"

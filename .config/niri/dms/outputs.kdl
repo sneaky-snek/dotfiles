@@ -6,3 +6,9 @@ output "ASUSTek COMPUTER INC XG27AQDMG S6LMRS012066" {
     position x=0 y=0
 }
 
+output "eDP-1" {
+    mode "2560x1600@120.002"
+    scale 1.25
+    position x=301 y=1482
+}
+
