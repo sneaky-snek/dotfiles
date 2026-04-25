@@ -349,6 +349,14 @@ window-rule {
 /-window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    blur {
+    	// off
+    	passes 3
+    	offset 3
+    	noise 0.02
+    	saturation 0
+	}
+
 }
 
 binds {
@@ -641,6 +649,7 @@ workspace "1"
 workspace "2" 
 workspace "3"
 workspace "4"
+workspace "5"
 
 
 
@@ -669,9 +678,6 @@ window-rule {
     open-on-workspace "2"
 }
 
-window-rule {
-    open-maximized true
-}
 
 // Then, for Alacritty, set open-maximized back to false.
 window-rule {
@@ -681,11 +687,26 @@ window-rule {
     open-maximized false
 }
 
+
 window-rule {
 	match is-focused=false
 	opacity 0.9
+	
+	background-effect {
+        	blur true
+    	}
 }
 
+window-rule {
+    geometry-corner-radius 8.0 // Adjust radius as needed
+    clip-to-geometry true
+
+    
+    background-effect {
+        blur true
+    }
+
+}
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.
     // Find the right namespace by running niri msg layers.
@@ -699,6 +720,8 @@ overview {
         off
     }
 }
+
+
 
 layer-rule {
     match namespace="dms:blurwallpaper"
