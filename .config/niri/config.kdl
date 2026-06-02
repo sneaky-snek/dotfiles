@@ -87,8 +87,8 @@ output "DP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1440"
-
+    mode "2560x1440@239.972"
+    //mode custom=true "2304x1440@120"
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
 
@@ -687,6 +687,11 @@ window-rule {
     open-maximized false
 }
 
+window-rule {
+    match app-id="dms-launcher" // Replace with actual app-id
+    open-floating true
+}
+
 
 window-rule {
 	match is-focused=false
@@ -714,7 +719,7 @@ window-rule {
         // Note: it'll look better to set background opacity
         // through your GTK theme CSS and not here.
         // This is just an example that makes it look obvious.
-        opacity 0.5
+        opacity 0.8
 
         background-effect {
             blur true
@@ -722,6 +727,14 @@ window-rule {
     }
 
 }
+
+window-rule {
+    match app-id="steam_app_.*"
+    match app-id="forzahorizon6.exe"
+    open-maximized true
+    open-fullscreen true
+}
+
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.
     // Find the right namespace by running niri msg layers.
@@ -744,12 +757,10 @@ layer-rule {
 }
 
 //GPU setup
-debug {
-    render-drm-device "/dev/dri/renderD129"
-}
+//debug {
+//    render-drm-device "/dev/dri/renderD129"
+//}
 
 //spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-sh-at-startup "swaybg -i /media/beeg/Media/Pics/Wallpapers/dofresh-tome4-wip06-full.jpg"
 include "dms/cursor.kdl"
-
-
