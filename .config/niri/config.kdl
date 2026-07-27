@@ -640,7 +640,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // CUSTOM
-    Mod+E hotkey-overlay-title="Open file manager"{ spawn "dolphin";}
+    Mod+E hotkey-overlay-title="Open file manager"{ spawn-sh "ghostty -e yazi";}
     ISO_Level3_Shift+backslash hotkey-overlay-title="Save OBS Clip"{ spawn-sh "obs-cmd replay save";}
    	
 }
@@ -648,8 +648,6 @@ binds {
 workspace "1" 
 workspace "2" 
 workspace "3"
-workspace "4"
-workspace "5"
 
 
 
@@ -675,7 +673,7 @@ window-rule {
 
 window-rule {
     match at-startup=true app-id="steam"
-    open-on-workspace "2"
+    open-on-workspace "3"
 }
 
 
@@ -728,12 +726,6 @@ window-rule {
 
 }
 
-window-rule {
-    match app-id="steam_app_.*"
-    match app-id="forzahorizon6.exe"
-    open-maximized true
-    open-fullscreen true
-}
 
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.

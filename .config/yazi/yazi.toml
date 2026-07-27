@@ -1,0 +1,15 @@
+[opener]
+sh = [{ run = "%s1", orphan = true, for = "linux" }]
+app_image = [{ run = "%s1", orphan = true, desc = "Run AppImage", for = "linux" }]
+
+[open]
+prepend_rules = [
+    { mime = "text/*", name = "*.sh", use = "sh" },
+    { mime ="{application/octet-stream,application/x-pie-executable}", name = "*.AppImage", use = "app_image" },
+]
+
+
+
+
+
+
