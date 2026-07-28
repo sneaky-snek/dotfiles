@@ -1,0 +1,9 @@
+[[mgr.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch 7z"
+desc = "Compress with ouch"
+
+[[mgr.prepend_keymap]]
+on = ["P"]
+run = "open"
+desc = "test open"

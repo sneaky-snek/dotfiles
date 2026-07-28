@@ -1,0 +1,19 @@
+[[plugin.deps]]
+use = "yazi-rs/flavors:catppuccin-frappeya"
+rev = "4770a34"
+hash = "99aa06d3014798d86001c324468d497f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "bb758e2"
+hash = "e0d59bd47866a6a574c74574097e5070"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "406ce6c"
+hash = "f5afc904d5106ee368c8aa2ded43bd74"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "4770a34"
+hash = "1844f850b0c5d1af511c84399c95e3d7"

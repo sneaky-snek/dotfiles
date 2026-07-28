@@ -17,9 +17,7 @@ input {
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
-	    layout "us"
-            variant "intl"
+	    layout "es"
 
         }
 
@@ -77,35 +75,16 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "DP-1" {
-    // Uncomment this line to disable this output.
-    // off
+output "DP-1"{
+	mode "1440x900@59.887"
+	scale 0.7
+	position x=0 y=0
+}
 
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1440@239.972"
-    //mode custom=true "2304x1440@120"
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=0 y=0
+output "HDMI-A-1"{
+	mode "1600x900@60.000"
+	scale 0.90
+//	position x=2057 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -640,14 +619,10 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // CUSTOM
-    Mod+E hotkey-overlay-title="Open file manager"{ spawn-sh "ghostty -e yazi";}
+    Mod+E hotkey-overlay-title="Open file manager"{ spawn-sh "alacritty -e yazi";}
     ISO_Level3_Shift+backslash hotkey-overlay-title="Save OBS Clip"{ spawn-sh "obs-cmd replay save";}
    	
 }
-
-workspace "1" 
-workspace "2" 
-workspace "3"
 
 
 
@@ -659,21 +634,6 @@ window-rule {
 window-rule {
     match app-id="spotify"
     open-on-workspace "2"
-}
-
-window-rule {
-    match app-id="vesktop"
-    open-on-workspace "2"
-}
-
-window-rule {
-    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-}
-
-window-rule {
-    match at-startup=true app-id="steam"
-    open-on-workspace "3"
 }
 
 
@@ -717,7 +677,7 @@ window-rule {
         // Note: it'll look better to set background opacity
         // through your GTK theme CSS and not here.
         // This is just an example that makes it look obvious.
-        opacity 0.8
+        opacity 0.9
 
         background-effect {
             blur true
@@ -735,12 +695,19 @@ layer-rule {
 }
 
 // Optionally, disable the workspace shadows in the overview.
-overview {
-    workspace-shadow {
-        off
-    }
-}
+//overview {
+//    workspace-shadow {
+//        off
+//    }
+//}
 
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
 
 
 layer-rule {
@@ -754,5 +721,7 @@ layer-rule {
 //}
 
 //spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-sh-at-startup "swaybg -i /media/beeg/Media/Pics/Wallpapers/dofresh-tome4-wip06-full.jpg"
+spawn-sh-at-startup "swaybg -i /home/snek/Pictures/wallhaven-yq2xpd.png"
 include "dms/cursor.kdl"
+
+include "dms/binds.kdl"

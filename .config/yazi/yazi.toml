@@ -1,15 +1,21 @@
 [opener]
-sh = [{ run = "%s1", orphan = true, for = "linux" }]
-app_image = [{ run = "%s1", orphan = true, desc = "Run AppImage", for = "linux" }]
-
-[open]
-prepend_rules = [
-    { mime = "text/*", name = "*.sh", use = "sh" },
-    { mime ="{application/octet-stream,application/x-pie-executable}", name = "*.AppImage", use = "app_image" },
+open = [{ run = 'kde-open "$1"', desc = "Open", for = "linux" }]
+edit = [
+    { run = 'nvim "$@"', block = true, for = "unix" },
+]
+extract = [
+	{ run = 'ouch d -y %*', desc = "Extract here with ouch", for = "windows" },
+	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
 ]
 
+[open]
+rules = [
+    { mime = "inode/x-empty", use = "edit" },
+    { url = "*.conf", use = "edit" },
+    { mime = "text/*", use = "edit" },
+]
 
-
-
-
+[[plugin.prepend_previewers]]
+mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}"
+run  = "ouch"
 

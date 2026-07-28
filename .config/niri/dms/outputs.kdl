@@ -3,6 +3,18 @@
 output "ASUSTek COMPUTER INC XG27AQDMG S6LMRS012066" {
     mode "2560x1440@239.972"
     scale 1
-    position x=0 y=0
+    position x=0 y=355
+}
+
+output "HDMI-A-1" {
+    mode "1600x900@60.000"
+    scale 1
+    position x=578 y=0
+}
+
+output "DP-1" {
+    mode "1440x900@59.887"
+    scale 1
+    position x=2178 y=0
 }
 
