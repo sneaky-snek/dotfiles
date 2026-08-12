@@ -1,18 +1,21 @@
 [opener]
-open = [{ run = 'kde-open "$1"', desc = "Open", for = "linux" }]
-edit = [
-    { run = 'nvim "$@"', block = true, for = "unix" },
-]
+
+open = [{ run = 'xdg-open "$@"', desc = "Open", for = "linux" },]
+edit = [{ run = 'nvim "$@"', block = true, for = "unix" },]
 extract = [
-	{ run = 'ouch d -y %*', desc = "Extract here with ouch", for = "windows" },
-	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+    { run = 'ouch d -y %*', desc = "Extract here with ouch", for = "windows" },
+    { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
 ]
+kate = [{ run = 'kate "$@"', desc = "Open with Kate", for = "linux", orphan = true },]
+firefox = [{ run = 'firefox "$@"', desc = "Open with Firefox", for = "linux", orphan = true },]
 
 [open]
 rules = [
-    { mime = "inode/x-empty", use = "edit" },
-    { url = "*.conf", use = "edit" },
-    { mime = "text/*", use = "edit" },
+    { mime = "inode/x-empty", use = ["edit", "kate"] },
+    { mime = "text/*", use = ["edit", "kate", "firefox"] },
+    { mime = "application/{zip,gzip,tar,bzip2,7z-compressed,xz,zstd,rar,java-archive}", use = ["extract", "open"] },
+    { url  = "*", use = ["open", "edit", "firefox"] }
+
 ]
 
 [[plugin.prepend_previewers]]

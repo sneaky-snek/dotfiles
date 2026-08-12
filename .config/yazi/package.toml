@@ -17,3 +17,8 @@ hash = "f5afc904d5106ee368c8aa2ded43bd74"
 use = "yazi-rs/flavors:catppuccin-frappe"
 rev = "4770a34"
 hash = "1844f850b0c5d1af511c84399c95e3d7"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "04985d1"
+hash = "c69a63981e254a3a06a11c2bf0e6af1d"

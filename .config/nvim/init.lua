@@ -11,6 +11,15 @@ vim.g.clipboard = {
     ["*"] = "dms cl paste",
   },
   cache_enabled = 0,
+
 }
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.cmd([[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight NormalNC guibg=none
+  highlight EndOfBuffer guibg=none
+]])
+

@@ -354,7 +354,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Q hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Q hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     //Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Space {spawn-sh "dms ipc call spotlight toggle";}
@@ -619,7 +619,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // CUSTOM
-    Mod+E hotkey-overlay-title="Open file manager"{ spawn-sh "alacritty -e yazi";}
+    Mod+E hotkey-overlay-title="Open file manager"{ spawn-sh "ghostty -e yazi";}
     ISO_Level3_Shift+backslash hotkey-overlay-title="Save OBS Clip"{ spawn-sh "obs-cmd replay save";}
    	
 }
@@ -646,6 +646,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="ghostty"
+    opacity 0.9
+}
+
+
+window-rule {
     match app-id="dms-launcher" // Replace with actual app-id
     open-floating true
 }
@@ -653,7 +659,7 @@ window-rule {
 
 window-rule {
 	match is-focused=false
-	opacity 0.9
+	opacity 0.8
 	
 	background-effect {
         	blur true
@@ -725,3 +731,5 @@ spawn-sh-at-startup "swaybg -i /home/snek/Pictures/wallhaven-yq2xpd.png"
 include "dms/cursor.kdl"
 
 include "dms/binds.kdl"
+
+include "dms-theme-sync.kdl"
